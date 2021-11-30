@@ -17,7 +17,12 @@ body {
 }
 
 main a {
-    color: #13f42d;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 5px;
+}
+main a:hover {
+    color: #ffffff;
     text-decoration: none;
     margin-top: 5px;
 }
@@ -41,6 +46,7 @@ main form .btn {
     justify-content: center;
     margin-top: 10px;
     margin-left: 200px;
+    text-decoration: none;
     width: 100%;
 }
 
