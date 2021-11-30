@@ -115,4 +115,4 @@ app.post('/auth', function(req,res){
 
 
 //Localhost
-app.listen(8082, console.log('Executando'))
+app.listen(8083, console.log('Executando'))
