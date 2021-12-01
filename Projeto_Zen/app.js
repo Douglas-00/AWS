@@ -61,18 +61,22 @@ app.get("/Cadastre-se", function (req, res) {
 // Fazendo Requisição via POST do Cadastro
 
   app.post('/src/Cadastro.html',function(req,res){
+    
     var nome = req.body.nome;
     var celular = req.body.celular;
     var email = req.body.email;
     var senha = req.body.senha;
-    connection.query("INSERT INTO usuario (nome_user,celular_user,email_user,senha) VALUES(?,?,?,?)",[nome,celular,email,senha],function(err,result){
+    var sql =  "INSERT INTO usuario (nome_user,celular_user,email_user,senha) VALUES ?";
+    var values = [nome,celular,email,senha];
+    connection.query(sql,values,function(err,result){
         if(err)throw err;
         console.log("1 usuario inserido")
-       console.log(result)
-
+       
+       console.log("Number of records inserted: " + result.affectedRows);
+       res.redirect('/modal.html');
     });
     
-    res.redirect('/modal.html');
+    
    //res.send("Cadastrado com Sucesso<br>Nome: "+ nome + "<br>Celular: "+celular+ "<br>Email: "+ email+ "<br>Senha: "+senha);
 });
 
