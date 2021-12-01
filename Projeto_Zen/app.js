@@ -68,7 +68,7 @@ app.get("/Cadastre-se", function (req, res) {
     connection.query("INSERT INTO usuario (nome_user,celular_user,email_user,senha) VALUES(?,?,?,?)",[nome,celular,email,senha],function(err,result){
         if(err)throw err;
         console.log("1 usuario inserido")
-       
+       console.log(result)
 
     });
     
@@ -78,10 +78,7 @@ app.get("/Cadastre-se", function (req, res) {
 
 //Parte de Cadastro OK
 
-
 //Requisição LOGIN
-
-
 
 app.post('/auth', function(req,res){
     var email = req.body.email;
@@ -90,7 +87,7 @@ app.post('/auth', function(req,res){
     console.log('COMPLETE DATA', req.body)
 
     if(email && senha){
-        connection.query("SELECT * FROM `usuario` WHERE email_user = ? AND senha = ?",[email,senha],function(error,results,fields){
+        connection.query("SELECT * FROM usuario WHERE email_user = ? AND senha = ?",[email,senha],function(error,results,fields){
             if(results.length > 0){
                 req.session.loggedin = true;
                 req.session.email = email;                
