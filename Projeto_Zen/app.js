@@ -65,15 +65,15 @@ app.get("/Cadastre-se", function (req, res) {
     var celular = req.body.celular;
     var email = req.body.email;
     var senha = req.body.senha;
-    connection.query("INSERT INTO `usuario` (nome_user,celular_user,email_user,senha) VALUES(?,?,?,?)",[nome,celular,email,senha],function(err,result){
+    connection.query("INSERT INTO usuario (nome_user,celular_user,email_user,senha) VALUES(?,?,?,?)",[nome,celular,email,senha],function(err,result){
         if(err)throw err;
         console.log("1 usuario inserido")
        
 
     });
     
-    //res.redirect('/modal.html');
-   res.send("Cadastrado com Sucesso<br>Nome: "+ nome + "<br>Celular: "+celular+ "<br>Email: "+ email+ "<br>Senha: "+senha);
+    res.redirect('/modal.html');
+   //res.send("Cadastrado com Sucesso<br>Nome: "+ nome + "<br>Celular: "+celular+ "<br>Email: "+ email+ "<br>Senha: "+senha);
 });
 
 //Parte de Cadastro OK
