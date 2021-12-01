@@ -72,8 +72,8 @@ app.get("/Cadastre-se", function (req, res) {
 
     });
     
-    res.redirect('/modal.html');
-   // res.send("Cadastrado com Sucesso<br>Nome: "+ nome + "<br>Celular: "+celular+ "<br>Email: "+ email+ "<br>Senha: "+senha)
+    //res.redirect('/modal.html');
+   res.send("Cadastrado com Sucesso<br>Nome: "+ nome + "<br>Celular: "+celular+ "<br>Email: "+ email+ "<br>Senha: "+senha);
 });
 
 //Parte de Cadastro OK
